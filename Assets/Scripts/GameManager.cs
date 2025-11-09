@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     void CreateEnemyThree()
     {
         Instantiate(enemyThreePrefab, new Vector3(Random.Range(-8f, 8f), 5.5f, 0), Quaternion.identity);
+    }
 
     void CreateEnemyTwo()
     {
