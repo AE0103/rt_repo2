@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    //how to define a variable
-    //1. access modifier: public or private
-    //2. data type: int, float, bool, string
-    //3. variable name: camelCase
-    //4. value: optional
 
     private float playerSpeed;
     private float horizontalInput;
     private float verticalInput;
 
     private float horizontalScreenLimit = 9.5f;
-    private float verticalScreenLimit = 6.5f;
+    private float verticalScreenLimitPositive = 2.5f;
+    private float verticalScreenLimitNegative = -3.5f;
 
     public GameObject bulletPrefab;
 
@@ -51,15 +47,19 @@ public class Player : MonoBehaviour
         //Move the player
         transform.Translate(new Vector3(horizontalInput, verticalInput, 0) * Time.deltaTime * playerSpeed);
         //Player leaves the screen horizontally
-        if(transform.position.x > horizontalScreenLimit || transform.position.x <= -horizontalScreenLimit)
+        if (transform.position.x > horizontalScreenLimit || transform.position.x <= -horizontalScreenLimit)
         {
             transform.position = new Vector3(transform.position.x * -1, transform.position.y, 0);
         }
-        //Player leaves the screen vertically
-        if(transform.position.y > verticalScreenLimit || transform.position.y <= -verticalScreenLimit)
+        //Player leaves the screen vertically (positive)
+        if (transform.position.y > verticalScreenLimitPositive)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y * -1, 0);
+            transform.position = new Vector3(transform.position.x, transform.position.y - 1, 0);
+        }
+        //Player leaves the screen vertically (negative)
+        if (transform.position.y <= verticalScreenLimitNegative)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y + 1, 0);
         }
     }
-
 }

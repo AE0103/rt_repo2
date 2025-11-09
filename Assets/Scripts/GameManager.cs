@@ -7,12 +7,14 @@ public class GameManager : MonoBehaviour
 
     public GameObject enemyOnePrefab;
     public GameObject enemyThreePrefab;
+    public GameObject enemyTwoPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("CreateEnemyOne", 1, 2);
         InvokeRepeating("CreateEnemyThree", 3, 4);
+        InvokeRepeating("CreateEnemyTwo", 1, 4.5f);
     }
 
     // Update is called once per frame
@@ -30,5 +32,8 @@ public class GameManager : MonoBehaviour
     {
         Instantiate(enemyThreePrefab, new Vector3(Random.Range(-8f, 8f), 5.5f, 0), Quaternion.identity);
 
+    void CreateEnemyTwo()
+    {
+        Instantiate(enemyTwoPrefab, new Vector3(Random.Range(-9f, 9f), 6.5f, 0), Quaternion.identity);
     }
 }
