@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    //how to define a variable
+    //1. access modifier: public or private
+    //2. data type: int, float, bool, string
+    //3. variable name: camelCase
+    //4. value: optional
 
     private float playerSpeed;
     private float horizontalInput;
