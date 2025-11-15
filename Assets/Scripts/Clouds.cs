@@ -25,7 +25,7 @@ public class Cloud : MonoBehaviour
 
         if (transform.position.y < -gameManager.verticalScreenSize)
         {
-            transform.position = new Vector3(Random.Range(-gameManager.horizontalScreenSize, gameManager.horizontalScreenSize), gameManager.verticalScreenSize * 1.2f, 0);
+            transform.position = new Vector3(Random.Range(-gameManager.horizontalScreenSize, gameManager.horizontalScreenSize), gameManager.verticalScreenSize * 1.5f, 0);
         }
 
     }
