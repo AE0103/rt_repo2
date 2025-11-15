@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     private float verticalScreenLimitNegative = -3.5f;
 
     public GameObject bulletPrefab;
+    public int lives = 1;
 
     void Start()
     {
@@ -60,6 +61,19 @@ public class Player : MonoBehaviour
         if (transform.position.y <= verticalScreenLimitNegative)
         {
             transform.position = new Vector3(transform.position.x, verticalScreenLimitNegative, 0);
+        }
+    }
+
+    public void GainLives()
+    {
+        if (lives < 3)
+        {
+            lives += 1;
+            Debug.Log(lives);
+        }
+        else
+        {
+            Debug.Log("Fulllives");
         }
     }
 }

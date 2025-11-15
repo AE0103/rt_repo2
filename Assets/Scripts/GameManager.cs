@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public GameObject enemyThreePrefab;
     public GameObject enemyTwoPrefab;
     public GameObject cloudPrefab;
+    public GameObject heartPrefab;
+    private int time;
 
     // Start is called before the first frame update
     void Start()
@@ -18,12 +20,13 @@ public class GameManager : MonoBehaviour
         InvokeRepeating("CreateEnemyThree", 3, 4);
         InvokeRepeating("CreateEnemyTwo", 1, 4.5f);
         CreateSky();
+        InvokeRepeating("SpawnLife", 5, Random.Range(7f, 10f));
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 
     void CreateEnemyOne()
@@ -48,5 +51,10 @@ public class GameManager : MonoBehaviour
             Instantiate(cloudPrefab, new Vector3(Random.Range(-horizontalScreenSize, horizontalScreenSize), Random.Range(-verticalScreenSize, verticalScreenSize), 0), Quaternion.identity);
         }
 
+    }
+
+    void SpawnLife()
+    {
+        Instantiate(heartPrefab, new Vector3(Random.Range(-horizontalScreenSize + 1f, horizontalScreenSize - 1f), Random.Range(0.5f, -3.5f), 0), Quaternion.identity);
     }
 }
