@@ -76,4 +76,18 @@ public class Player : MonoBehaviour
             Debug.Log("Fulllives");
         }
     }
+
+    public void LoseLife()
+    {
+        if (lives > 0)
+        {
+            lives--;
+            Debug.Log(lives);
+        }
+
+        if (lives == 0)
+        {
+            Debug.Log("Game Over");
+        }
+    }
 }

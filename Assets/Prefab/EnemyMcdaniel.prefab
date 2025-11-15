@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8885196269698992285}
   m_Layer: 0
   m_Name: EnemyMcdaniel
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25b649816b516944dbe19ffd028fb056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMcdaniel
+  explosionPrefab: {fileID: 8199567823508846399, guid: 099ef3301384055429ef44b6120acd98, type: 3}
 --- !u!58 &-8885196269698992285
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -133,7 +134,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
