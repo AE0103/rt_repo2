@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     private float verticalInput;
 
     private float horizontalScreenLimit = 9.5f;
-    private float verticalScreenLimitPositive = 2.5f;
+    private float verticalScreenLimitPositive = 0.5f;
     private float verticalScreenLimitNegative = -3.5f;
 
     public GameObject bulletPrefab;
@@ -54,12 +54,12 @@ public class Player : MonoBehaviour
         //Player leaves the screen vertically (positive)
         if (transform.position.y > verticalScreenLimitPositive)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y - 1, 0);
+            transform.position = new Vector3(transform.position.x, verticalScreenLimitPositive, 0);
         }
         //Player leaves the screen vertically (negative)
         if (transform.position.y <= verticalScreenLimitNegative)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y + 1, 0);
+            transform.position = new Vector3(transform.position.x, verticalScreenLimitNegative, 0);
         }
     }
 }
