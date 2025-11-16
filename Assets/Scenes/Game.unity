@@ -463,6 +463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyOnePrefab: {fileID: 9207418728420716899, guid: 57d7aa5182902e24cb707961f14f52d5, type: 3}
+  enemyThreePrefab: {fileID: 9207418728420716899, guid: bd66a53c0b2d72844ab74cdeafdf1bb1, type: 3}
   enemyTwoPrefab: {fileID: 9207418728420716899, guid: 3907fe4019a083d40bca9b81d8104b54, type: 3}
 --- !u!4 &2142600587
 Transform:
