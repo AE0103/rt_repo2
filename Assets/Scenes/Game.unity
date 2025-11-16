@@ -934,11 +934,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   verticalScreenSize: 5
   horizontalScreenSize: 6.5
-  playerPrefab: {fileID: 0}
+  playerPrefab: {fileID: 619908759}
   enemyOnePrefab: {fileID: 9207418728420716899, guid: 57d7aa5182902e24cb707961f14f52d5, type: 3}
   enemyThreePrefab: {fileID: 9207418728420716899, guid: bd66a53c0b2d72844ab74cdeafdf1bb1, type: 3}
   enemyTwoPrefab: {fileID: 9207418728420716899, guid: 3907fe4019a083d40bca9b81d8104b54, type: 3}
   cloudPrefab: {fileID: 2474666801837956491, guid: 932ac30aabefc8d4e92f3405733132ec, type: 3}
+  coinPrefab: {fileID: 812033261043554125, guid: ac118d05f5b0126469ff5a7afd7d3ee9, type: 3}
   livesText: {fileID: 1439980906}
   scoreText: {fileID: 1107451644}
   score: 0

@@ -44,7 +44,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Update()
+    private void OnTriggerEnter2D(Collider2D whatDidIHit)
+    {
+        if (whatDidIHit.tag == "Coin")
+        {
+            gameManager.AddScore(1);
+            Destroy(whatDidIHit.gameObject);
+        }
+    }
+
+        void Update()
     {
         //This function is called every frame; 60 frames/second
         Movement();
