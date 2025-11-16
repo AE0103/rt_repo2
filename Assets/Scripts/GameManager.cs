@@ -26,13 +26,12 @@ public class GameManager : MonoBehaviour
         score = 0;
         AddScore(0);
         CreateSky();
-        InvokeRepeating("SpawnLife", 5, Random.Range(7f, 10f));
     }
 
     // Update is called once per frame
     void Update()
     {
-
+       
     }
 
     void CreateEnemyOne()
@@ -67,10 +66,5 @@ public class GameManager : MonoBehaviour
     public void ChangeLivesText(int currentLives)
     {
         livesText.text = "Lives: " + currentLives;
-    }
-
-    void SpawnLife()
-    {
-        Instantiate(heartPrefab, new Vector3(Random.Range(-horizontalScreenSize + 1f, horizontalScreenSize - 1f), Random.Range(0.5f, -3.5f), 0), Quaternion.identity);
     }
 }
