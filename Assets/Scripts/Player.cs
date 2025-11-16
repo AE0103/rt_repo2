@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    //how to define a variable
-    //1. access modifier: public or private
-    //2. data type: int, float, bool, string
-    //3. variable name: camelCase
-    //4. value: optional
 
     private float playerSpeed;
     private float horizontalInput;
     private float verticalInput;
 
     private float horizontalScreenLimit = 9.5f;
-    private float verticalScreenLimitPositive = 2.5f;
+    private float verticalScreenLimitPositive = 0.5f;
     private float verticalScreenLimitNegative = -3.5f;
 
     public GameObject bulletPrefab;
@@ -59,12 +54,12 @@ public class Player : MonoBehaviour
         //Player leaves the screen vertically (positive)
         if (transform.position.y > verticalScreenLimitPositive)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y - 1, 0);
+            transform.position = new Vector3(transform.position.x, verticalScreenLimitPositive, 0);
         }
         //Player leaves the screen vertically (negative)
         if (transform.position.y <= verticalScreenLimitNegative)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y + 1, 0);
+            transform.position = new Vector3(transform.position.x, verticalScreenLimitNegative, 0);
         }
     }
 }
