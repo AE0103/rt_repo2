@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 5939596093757087869}
   - component: {fileID: 1562619519606356461}
   - component: {fileID: 7489711604934790437}
-  - component: {fileID: -7204676717341241873}
-  - component: {fileID: -8820744425440267782}
+  - component: {fileID: 8818561766742370968}
   m_Layer: 0
   m_Name: Heart
   m_TagString: Untagged
@@ -139,20 +138,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 53.45269, y: 50.66}
   m_EdgeRadius: 0
---- !u!114 &-7204676717341241873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 406349381060368524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3b84ddf698048c44a34d80326262a05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SelfDestroyer
-  destructionTime: 5
---- !u!114 &-8820744425440267782
+--- !u!114 &8818561766742370968
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

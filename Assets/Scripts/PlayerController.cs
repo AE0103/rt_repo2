@@ -89,11 +89,13 @@ public class PlayerController : MonoBehaviour
     {
         if (lives < 3)
         {
-            lives += 1;
+            lives ++ ;
+            gameManager.ChangeLivesText(lives);
             Debug.Log(lives);
         }
         else
         {
+            gameManager.AddScore(5);
             Debug.Log("Fulllives");
         }
     }

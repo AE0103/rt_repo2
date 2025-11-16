@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyMcdaniel : MonoBehaviour
 {
-    public GameObject explosionPrefab;
     private GameManager gameManager;
 
     private int speed_dir = 1;

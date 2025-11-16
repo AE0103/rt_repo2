@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI scoreText;
     public int score;
+    public GameObject heartPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
         score = 0;
         AddScore(0);
         CreateSky();
-        InvokeRepeating("SpawnLife", 5, Random.Range(7f, 10f));
+        InvokeRepeating("SpawnLife", 5, Random.Range(7f, 8f));
     }
 
     // Update is called once per frame
