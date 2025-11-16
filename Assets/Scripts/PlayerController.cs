@@ -99,4 +99,14 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Fulllives");
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D whatDidIHit)
+    {
+        if (whatDidIHit.tag == "Coin")
+        {
+            gameManager.AddScore(1);
+            Destroy(whatDidIHit.gameObject);
+        }
+    }
+
 }
