@@ -21,19 +21,4 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D whatDidIHit)
-    {
-        if (whatDidIHit.tag == "Player")
-        {
-            whatDidIHit.GetComponent<Player>().LoseLife();
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
-        }
-        else if (whatDidIHit.tag == "Weapon")
-        {
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
-        }
-    }
 }

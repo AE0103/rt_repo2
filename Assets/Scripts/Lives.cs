@@ -18,7 +18,7 @@ public class Lives : MonoBehaviour
     {
         if(whatDidIHit.tag == "Player")
         {
-            whatDidIHit.GetComponent< Player >().GainLives();
+            whatDidIHit.GetComponent< PlayerController >().GainLives();
             Destroy(this.gameObject);
         }
     }
