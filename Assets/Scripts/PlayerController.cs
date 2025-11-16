@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-
+    public int lives;
     private float playerSpeed;
+
+    private GameManager gameManager;
+
     private float horizontalInput;
     private float verticalInput;
 
@@ -13,13 +16,32 @@ public class Player : MonoBehaviour
     private float verticalScreenLimitPositive = 0.5f;
     private float verticalScreenLimitNegative = -3.5f;
 
+    public GameObject explosionPrefab;
     public GameObject bulletPrefab;
 
+    //This function is called at the start of the game
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         playerSpeed = 6f;
-        //This function is called at the start of the game
-        
+        lives = 3;
+        gameManager.ChangeLivesText(lives);
+    }
+
+    public void LoseALife()
+    {
+        //lives --
+        //lives = lives -1
+        //lives -= -1;
+
+
+        lives--;
+        gameManager.ChangeLivesText(lives);
+        if (lives == 0)
+        {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+        }
     }
 
     void Update()
@@ -33,7 +55,7 @@ public class Player : MonoBehaviour
     void Shooting()
     {
         //if the player presses the SPACE key, create a projectile
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(bulletPrefab, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
         }
