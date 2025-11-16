@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public int score;
     public GameObject heartPrefab;
+    public GameObject coinPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
         AddScore(0);
         CreateSky();
         InvokeRepeating("SpawnLife", 5, Random.Range(7f, 8f));
+        StartCoroutine(SpawnCoin());
     }
 
     // Update is called once per frame
@@ -59,6 +61,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void CreateCoin()
+    {
+        Instantiate(coinPrefab, new Vector3(Random.Range(-horizontalScreenSize * 0.8f, horizontalScreenSize * 0.8f), Random.Range(0.5f, -3.5f), 0), Quaternion.identity);
+    }
+
     public void AddScore(int earnedScore)
     {
         score = score + earnedScore;
@@ -74,4 +81,13 @@ public class GameManager : MonoBehaviour
     {
         Instantiate(heartPrefab, new Vector3(Random.Range(-horizontalScreenSize + 1f, horizontalScreenSize - 1f), Random.Range(0.5f, -3.5f), 0), Quaternion.identity);
     }
+
+    IEnumerator SpawnCoin()
+    {
+        float spawnTime = Random.Range(3, 5);
+        yield return new WaitForSeconds(spawnTime);
+        CreateCoin();
+        StartCoroutine(SpawnCoin());
+    }
+
 }

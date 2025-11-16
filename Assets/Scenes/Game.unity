@@ -971,6 +971,7 @@ MonoBehaviour:
   scoreText: {fileID: 1107451644}
   score: 0
   heartPrefab: {fileID: 406349381060368524, guid: 416aa211f85ecc64987c0bd1b6830208, type: 3}
+  coinPrefab: {fileID: 6061401821871713264, guid: ac118d05f5b0126469ff5a7afd7d3ee9, type: 3}
 --- !u!4 &2142600587
 Transform:
   m_ObjectHideFlags: 0
