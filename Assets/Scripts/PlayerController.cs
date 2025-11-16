@@ -84,4 +84,17 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, verticalScreenLimitNegative, 0);
         }
     }
+
+    public void GainLives()
+    {
+        if (lives < 3)
+        {
+            lives += 1;
+            Debug.Log(lives);
+        }
+        else
+        {
+            Debug.Log("Fulllives");
+        }
+    }
 }
