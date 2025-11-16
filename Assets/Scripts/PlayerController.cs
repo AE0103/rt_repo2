@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            gameManager.AddScore(5);
+            gameManager.AddScore(3);
             Debug.Log("Fulllives");
         }
     }

@@ -61,7 +61,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
+    void CreateCoin()
+    {
+        Instantiate(coinPrefab, new Vector3(Random.Range(-horizontalScreenSize * 0.8f, horizontalScreenSize * 0.8f), Random.Range(0.5f, -3.5f), 0), Quaternion.identity);
+    }
 
     public void AddScore(int earnedScore)
     {
