@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public float verticalScreenSize = 5f;
     public float horizontalScreenSize = 6.5f;
+    public GameObject playerPrefab;
     public GameObject enemyOnePrefab;
     public GameObject enemyThreePrefab;
     public GameObject enemyTwoPrefab;
     public GameObject cloudPrefab;
-    public GameObject heartPrefab;
-    private int time;
+    public TextMeshProUGUI livesText;
+    public TextMeshProUGUI scoreText;
+    public int score;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +23,8 @@ public class GameManager : MonoBehaviour
         InvokeRepeating("CreateEnemyOne", 1, 2);
         InvokeRepeating("CreateEnemyThree", 3, 4);
         InvokeRepeating("CreateEnemyTwo", 1, 4.5f);
+        score = 0;
+        AddScore(0);
         CreateSky();
         InvokeRepeating("SpawnLife", 5, Random.Range(7f, 10f));
     }
@@ -50,7 +56,17 @@ public class GameManager : MonoBehaviour
         {
             Instantiate(cloudPrefab, new Vector3(Random.Range(-horizontalScreenSize, horizontalScreenSize), Random.Range(-verticalScreenSize, verticalScreenSize), 0), Quaternion.identity);
         }
+    }
 
+    public void AddScore(int earnedScore)
+    {
+        score = score + earnedScore;
+        scoreText.text = "Score: " + score;
+    }
+
+    public void ChangeLivesText(int currentLives)
+    {
+        livesText.text = "Lives: " + currentLives;
     }
 
     void SpawnLife()
