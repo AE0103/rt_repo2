@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1562619519606356461}
   - component: {fileID: 7489711604934790437}
   - component: {fileID: 8818561766742370968}
+  - component: {fileID: -3485245117292092482}
   m_Layer: 0
   m_Name: Heart
   m_TagString: Untagged
@@ -150,3 +151,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 487fcf5c651e2c04785c1efe8ea8fe3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lives
+--- !u!114 &-3485245117292092482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406349381060368524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f88bcedb6e2b5a498c9fbd00b704dbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SelfDestroyer
+  destructionTime: 3

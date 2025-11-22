@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8612981606077305815}
   - component: {fileID: 4101015861115703028}
   - component: {fileID: -3796657466897638687}
+  - component: {fileID: -8389097650116054152}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Coin
@@ -137,3 +138,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.94, y: 4.96}
   m_EdgeRadius: 0
+--- !u!114 &-8389097650116054152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6061401821871713264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f88bcedb6e2b5a498c9fbd00b704dbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SelfDestroyer
+  destructionTime: 3
