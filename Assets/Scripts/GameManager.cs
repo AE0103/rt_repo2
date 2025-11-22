@@ -18,10 +18,16 @@ public class GameManager : MonoBehaviour
     public int score;
     public GameObject heartPrefab;
     public GameObject coinPrefab;
+    public GameObject shieldPrefab;
+    private GameObject player;
+    public GameObject audioPlayer;
+
+    public AudioClip shieldGain;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player");
         InvokeRepeating("CreateEnemyOne", 1, 2);
         InvokeRepeating("CreateEnemyThree", 3, 4);
         InvokeRepeating("CreateEnemyTwo", 1, 4.5f);
@@ -30,6 +36,7 @@ public class GameManager : MonoBehaviour
         CreateSky();
         InvokeRepeating("SpawnLife", 5, Random.Range(7f, 8f));
         StartCoroutine(SpawnCoin());
+        InvokeRepeating("SpawnShield", 5, Random.Range(7f, 8f));
     }
 
     // Update is called once per frame
@@ -90,4 +97,18 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SpawnCoin());
     }
 
+    void SpawnShield()
+    {
+        Instantiate(shieldPrefab, new Vector3(Random.Range(-horizontalScreenSize + 1f, horizontalScreenSize - 1f), Random.Range(0.5f, -3.5f), 0), Quaternion.identity);
+    }
+
+    public void PlaySound(int whichSound)
+    {
+        switch (whichSound)
+        {
+            case 1:
+                audioPlayer.GetComponent<AudioSource>().PlayOneShot(shieldGain);
+                break;
+        }
+    }
 }

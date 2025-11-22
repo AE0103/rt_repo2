@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public int lives;
     private float playerSpeed;
+    public int shield = 0;
 
     private GameManager gameManager;
 
@@ -91,7 +92,6 @@ public class PlayerController : MonoBehaviour
         {
             lives ++ ;
             gameManager.ChangeLivesText(lives);
-            Debug.Log(lives);
         }
         else
         {
@@ -109,4 +109,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void LoseShield()
+    {
+        shield--;
+    }
+
+    public void GainShield()
+    {
+        if (shield == 0)
+        {
+            shield++;
+        }
+        else
+        {
+            gameManager.AddScore(1);
+        }
+    }
 }
