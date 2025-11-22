@@ -102,6 +102,7 @@ public class GameManager : MonoBehaviour
         Instantiate(shieldPrefab, new Vector3(Random.Range(-horizontalScreenSize + 1f, horizontalScreenSize - 1f), Random.Range(0.5f, -3.5f), 0), Quaternion.identity);
     }
 
+    // A funtion that will play a sound depending on certain requirments (whats being hit mostly)
     public void PlaySound(int whichSound)
     {
         switch (whichSound)
