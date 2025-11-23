@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyMcdaniel : MonoBehaviour
 {
-    public GameObject explosionPrefab;
     private GameManager gameManager;
 
     private int speed_dir = 1;
     private Vector3 start_pos;
+    public GameObject explosionPrefab;
     // Start is called before the first frame update
     void Start()
     {

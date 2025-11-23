@@ -8,18 +8,21 @@ public class GameManager : MonoBehaviour
 {
     public float verticalScreenSize = 5f;
     public float horizontalScreenSize = 6.5f;
-
     public GameObject playerPrefab;
     public GameObject enemyOnePrefab;
     public GameObject enemyThreePrefab;
     public GameObject enemyTwoPrefab;
     public GameObject cloudPrefab;
-    public GameObject coinPrefab;
-
+    public GameObject audioPlayer;
+    public AudioClip CoinSound;
+    public AudioClip LifeSound;
+    public AudioClip PowerUpSound;
+    public AudioClip PowerDownSound;
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI scoreText;
-
     public int score;
+    public GameObject heartPrefab;
+    public GameObject coinPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -30,13 +33,14 @@ public class GameManager : MonoBehaviour
         score = 0;
         AddScore(0);
         CreateSky();
+        InvokeRepeating("SpawnLife", 5, Random.Range(7f, 8f));
         StartCoroutine(SpawnCoin());
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 
     void CreateEnemyOne()
@@ -54,11 +58,6 @@ public class GameManager : MonoBehaviour
         Instantiate(enemyTwoPrefab, new Vector3(Random.Range(-9f, 9f), 6.5f, 0), Quaternion.identity);
     }
 
-    void CreateCoin()
-    {
-        Instantiate(coinPrefab, new Vector3(Random.Range(-horizontalScreenSize * 0.8f, horizontalScreenSize * 0.8f), Random.Range(-verticalScreenSize * 0.8f, verticalScreenSize * 0.8f), 0), Quaternion.identity);
-    }
-
     void CreateSky()
     {
         for (int i = 0; i < 30; i++)
@@ -67,14 +66,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnCoin()
+    void CreateCoin()
     {
-        float spawnTime = Random.Range(3, 5);
-        yield return new WaitForSeconds(spawnTime);
-        CreateCoin();
-        StartCoroutine(SpawnCoin());
+        Instantiate(coinPrefab, new Vector3(Random.Range(-horizontalScreenSize * 0.8f, horizontalScreenSize * 0.8f), Random.Range(0.5f, -3.5f), 0), Quaternion.identity);
     }
 
+    public void PlaySound(int whichSound)
+    {
+        switch (whichSound)
+        {
+            case 1:
+                audioPlayer.GetComponent<AudioSource>().PlayOneShot(PowerUpSound);
+                break;
+            case 2:
+                audioPlayer.GetComponent<AudioSource>().PlayOneShot(PowerDownSound);
+                break;
+            case 3:
+                audioPlayer.GetComponent<AudioSource>().PlayOneShot(CoinSound);
+                break;
+            case 4:
+                audioPlayer.GetComponent<AudioSource>().PlayOneShot(LifeSound);
+                break;
+        }
+    }
 
     public void AddScore(int earnedScore)
     {
@@ -86,4 +100,18 @@ public class GameManager : MonoBehaviour
     {
         livesText.text = "Lives: " + currentLives;
     }
+
+    void SpawnLife()
+    {
+        Instantiate(heartPrefab, new Vector3(Random.Range(-horizontalScreenSize + 1f, horizontalScreenSize - 1f), Random.Range(0.5f, -3.5f), 0), Quaternion.identity);
+    }
+
+    IEnumerator SpawnCoin()
+    {
+        float spawnTime = Random.Range(3, 5);
+        yield return new WaitForSeconds(spawnTime);
+        CreateCoin();
+        StartCoroutine(SpawnCoin());
+    }
+
 }

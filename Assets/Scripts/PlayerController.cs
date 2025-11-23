@@ -44,16 +44,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D whatDidIHit)
-    {
-        if (whatDidIHit.tag == "Coin")
-        {
-            gameManager.AddScore(1);
-            Destroy(whatDidIHit.gameObject);
-        }
-    }
-
-        void Update()
+    void Update()
     {
         //This function is called every frame; 60 frames/second
         Movement();
@@ -93,4 +84,32 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, verticalScreenLimitNegative, 0);
         }
     }
+
+    public void GainLives()
+    {
+        if (lives < 3)
+        {
+            lives ++;
+            gameManager.ChangeLivesText(lives);
+            gameManager.PlaySound(4);
+            Debug.Log(lives);
+        }
+        else
+        {
+            gameManager.AddScore(3);
+            gameManager.PlaySound(4);
+            Debug.Log("Fulllives");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D whatDidIHit)
+    {
+        if (whatDidIHit.tag == "Coin")
+        {
+            gameManager.AddScore(1);
+            Destroy(whatDidIHit.gameObject);
+            gameManager.PlaySound(3);
+        }
+    }
+
 }
