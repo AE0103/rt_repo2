@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public int lives;
     private float playerSpeed;
+    public int shield = 0;
 
     private GameManager gameManager;
 
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
 
         lives--;
         gameManager.ChangeLivesText(lives);
+        gameManager.PlaySound(5);
         if (lives == 0)
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
@@ -91,12 +93,13 @@ public class PlayerController : MonoBehaviour
         {
             lives ++ ;
             gameManager.ChangeLivesText(lives);
-            Debug.Log(lives);
+            gameManager.PlaySound(4);
         }
         else
         {
             gameManager.AddScore(3);
             Debug.Log("Fulllives");
+            gameManager.PlaySound(3);
         }
     }
 
@@ -106,7 +109,26 @@ public class PlayerController : MonoBehaviour
         {
             gameManager.AddScore(1);
             Destroy(whatDidIHit.gameObject);
+            gameManager.PlaySound(3);
         }
     }
 
+    public void LoseShield()
+    {
+        shield--;
+        gameManager.PlaySound(2);
+    }
+
+    public void GainShield()
+    {
+        if (shield == 0)
+        {
+            shield++;
+        }
+        else
+        {
+            gameManager.AddScore(1);
+            gameManager.PlaySound(3);
+        }
+    }
 }

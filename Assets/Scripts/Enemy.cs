@@ -27,7 +27,14 @@ public class Enemy : MonoBehaviour
     {
         if (whatDidIHit.tag == "Player")
         {
-            whatDidIHit.GetComponent<PlayerController>().LoseALife();
+            if (whatDidIHit.GetComponent<PlayerController>().shield == 1)
+            {
+                whatDidIHit.GetComponent<PlayerController>().LoseShield();
+            }
+            else
+            {
+                whatDidIHit.GetComponent<PlayerController>().LoseALife();
+            }
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
