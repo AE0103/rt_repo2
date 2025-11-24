@@ -22,7 +22,11 @@ public class GameManager : MonoBehaviour
     private GameObject player;
     public GameObject audioPlayer;
 
-    public AudioClip shieldGain;
+    public AudioClip powerUp;
+    public AudioClip powerDown;
+    public AudioClip coinSound;
+    public AudioClip lifeSound;
+    public AudioClip hitSound;
 
     // Start is called before the first frame update
     void Start()
@@ -108,7 +112,19 @@ public class GameManager : MonoBehaviour
         switch (whichSound)
         {
             case 1:
-                audioPlayer.GetComponent<AudioSource>().PlayOneShot(shieldGain);
+                audioPlayer.GetComponent<AudioSource>().PlayOneShot(powerUp);
+                break;
+            case 2:
+                audioPlayer.GetComponent<AudioSource>().PlayOneShot(powerDown);
+                break;
+            case 3:
+                audioPlayer.GetComponent<AudioSource>().PlayOneShot(coinSound);
+                break;
+            case 4:
+                audioPlayer.GetComponent<AudioSource>().PlayOneShot(lifeSound);
+                break;
+            case 5:
+                audioPlayer.GetComponent<AudioSource>().PlayOneShot(hitSound);
                 break;
         }
     }
